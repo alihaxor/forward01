@@ -1,16 +1,13 @@
-const http = require('http');
+const express = require('express');
 
 // event emmiters
 // stream
 // clusters
-// If you're not using stream than you're not doing it right.
-const server = http.createServer();
-server.on('request', (req, res) => {
-    res.write("Hello Node");
 
-    setTimeout(() => {
-        res.write("Still on. ....");
-        res.end();
-    }, 3000);
-});
-server.listen(8080);
+const app = express();
+
+app.use(express.static('client'));
+// app.get('/', (req, res) => {
+// });
+
+app.listen(8080);
